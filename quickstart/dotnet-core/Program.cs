@@ -28,9 +28,9 @@ namespace Redistest
         {
             // Initialize
             var builder = new ConfigurationBuilder();
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                .AddUserSecrets<Program>();
             var configuration = builder.Build();
-            _redisConnection = await RedisConnection.InitializeAsync(redisHostName: configuration["RedisHostName"].ToString());
+            _redisConnection = await RedisConnection.InitializeAsync(redisHostName: configuration["redisHostName"].ToString());
 
             try
             {
