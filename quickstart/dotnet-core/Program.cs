@@ -27,7 +27,7 @@ namespace Redistest
         static async Task Main(string[] args)
         {
             // Initialize
-            var builder = new ConfigurationBuilder()
+            var builder = new ConfigurationBuilder();
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             var configuration = builder.Build();
             _redisConnection = await RedisConnection.InitializeAsync(redisHostName: configuration["RedisHostName"].ToString());
