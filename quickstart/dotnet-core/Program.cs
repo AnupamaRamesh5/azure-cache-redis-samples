@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
 using System;
 using System.Text.Json;
@@ -27,7 +27,7 @@ namespace Redistest
         static async Task Main(string[] args)
         {
             // Initialize
-            var builder = new ConfigurationBuilder();
+            var builder = new ConfigurationBuilder()
                 .AddUserSecrets<Program>();
             var configuration = builder.Build();
             _redisConnection = await RedisConnection.InitializeAsync(redisHostName: configuration["redisHostName"].ToString());
