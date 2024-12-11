@@ -28,8 +28,6 @@ namespace Redistest
         {
             // Initialize
             var builder = new ConfigurationBuilder()
-                .AddUserSecrets<Program>();
-                .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             var configuration = builder.Build();
             _redisConnection = await RedisConnection.InitializeAsync(redisHostName: configuration["RedisHostName"].ToString());
